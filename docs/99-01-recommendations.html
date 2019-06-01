@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Recommendations - Paymail</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="index.html">Overview</a></li><li><a href="01-brfc-specifications.html"><strong aria-hidden="true">1.</strong> BRFC Specifications</a></li><li><ol class="section"><li><a href="01-01-specification-documents.html"><strong aria-hidden="true">1.1.</strong> Specification Documents</a></li><li><a href="01-02-brfc-id-assignment.html"><strong aria-hidden="true">1.2.</strong> BRFC ID Assignment</a></li></ol></li><li><a href="02-service-discovery.html"><strong aria-hidden="true">2.</strong> Service Discovery</a></li><li><ol class="section"><li><a href="02-01-host-discovery.html"><strong aria-hidden="true">2.1.</strong> Host Discovery</a></li><li><a href="02-02-capability-discovery.html"><strong aria-hidden="true">2.2.</strong> Capability Discovery</a></li></ol></li><li><a href="03-public-key-infrastructure.html"><strong aria-hidden="true">3.</strong> Public Key Infrastructure</a></li><li><a href="04-payment-addressing.html"><strong aria-hidden="true">4.</strong> Payment Addressing</a></li><li><ol class="section"><li><a href="04-01-basic-address-resolution.html"><strong aria-hidden="true">4.1.</strong> Basic Address Resolution</a></li><li><a href="04-02-sender-validation.html"><strong aria-hidden="true">4.2.</strong> Sender Validation</a></li><li><a href="04-03-receiver-approvals.html"><strong aria-hidden="true">4.3.</strong> Receiver Approvals</a></li><li><a href="04-04-payto-protocol-prefix.html"><strong aria-hidden="true">4.4.</strong> PayTo Protocol Prefix</a></li></ol></li><li><a href="05-verify-public-key-owner.html"><strong aria-hidden="true">5.</strong> Verify Public Key Owner</a></li><li class="affix"><a href="99-01-recommendations.html" class="active">Recommendations</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Paymail</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#recommendations" id="recommendations"><h1>Recommendations</h1></a>
+<p>paymail lives on the public web. As such, it is recommended that standard defensive mechanisms are deployed. These include, but are not limited to:</p>
+<ul>
+<li>maintain access logs</li>
+<li>prevent information leakage, including through error messages</li>
+<li>do not keep sensitive information on internet-connected servers</li>
+<li>place limits on everything, even if they are high
+<ul>
+<li>rate limits</li>
+<li>maximum message size limits</li>
+<li>bad request limits (leading to a ban)
+<ul>
+<li>malformed requests</li>
+<li>suspicious requests</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>secure the host operating system and environment</li>
+<li>operate under the principle of least privilege</li>
+<li>do not trust any input to any API endpoint
+<ul>
+<li>assume all API calls are hostile until proven otherwise</li>
+<li>sanitize <em>everything</em></li>
+</ul>
+</li>
+<li>keep software/library/dependency versions up to date</li>
+</ul>
+<p>There are additional concerns that are specific to the paymail service:</p>
+<ul>
+<li>consider the meanings of request bodies
+<ul>
+<li>whilst it might be normal for an online retail store to receive a high volume of payment destination requests and pay to email posts, consider the amounts being paid. a valid transaction might not count towards some sort of ban limit, but maybe it should if the service receives thousands of dust transactions a second</li>
+<li>infinite-loop payment destination requests might be valid but can lead to resource exhaustion, both CPU (during key derivation) and address space (individual Type 2 HD Wallet derivation paths, for example, are not infinite)</li>
+<li>consider if the request is really probing for leaked information, rather than performing its intended function
+<ul>
+<li>see the <a href="./05-pay-to-email.html#401-unauthorized">401 Unauthorised</a> response section of the <a href="./05-pay-to-email.html">Pay-to-Email specification</a> for an example</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>consider risks to funds
+<ul>
+<li>use <code>xpub</code> or nChain public key derivation for payment destination discovery. do not keep wallet seeds or private keys in paymail services, as these are a gold mine waiting to be stolen by a malicious adversary</li>
+</ul>
+</li>
+</ul>
+<p>Copyright 2019 nChain and Money Button</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="05-verify-public-key-owner.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="05-verify-public-key-owner.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
