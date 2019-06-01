@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Specification Documents - Paymail</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="index.html">Overview</a></li><li><a href="01-brfc-specifications.html"><strong aria-hidden="true">1.</strong> BRFC Specifications</a></li><li><ol class="section"><li><a href="01-01-specification-documents.html" class="active"><strong aria-hidden="true">1.1.</strong> Specification Documents</a></li><li><a href="01-02-brfc-id-assignment.html"><strong aria-hidden="true">1.2.</strong> BRFC ID Assignment</a></li></ol></li><li><a href="02-service-discovery.html"><strong aria-hidden="true">2.</strong> Service Discovery</a></li><li><ol class="section"><li><a href="02-01-host-discovery.html"><strong aria-hidden="true">2.1.</strong> Host Discovery</a></li><li><a href="02-02-capability-discovery.html"><strong aria-hidden="true">2.2.</strong> Capability Discovery</a></li></ol></li><li><a href="03-public-key-infrastructure.html"><strong aria-hidden="true">3.</strong> Public Key Infrastructure</a></li><li><a href="04-payment-addressing.html"><strong aria-hidden="true">4.</strong> Payment Addressing</a></li><li><ol class="section"><li><a href="04-01-basic-address-resolution.html"><strong aria-hidden="true">4.1.</strong> Basic Address Resolution</a></li><li><a href="04-02-sender-validation.html"><strong aria-hidden="true">4.2.</strong> Sender Validation</a></li><li><a href="04-03-receiver-approvals.html"><strong aria-hidden="true">4.3.</strong> Receiver Approvals</a></li><li><a href="04-04-payto-protocol-prefix.html"><strong aria-hidden="true">4.4.</strong> PayTo Protocol Prefix</a></li></ol></li><li><a href="05-verify-public-key-owner.html"><strong aria-hidden="true">5.</strong> Verify Public Key Owner</a></li><li class="affix"><a href="99-01-recommendations.html">Recommendations</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Paymail</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#specification-documents" id="specification-documents"><h1>Specification Documents</h1></a>
+<p>There is no fixed format or central location for BRFC documents. They may be authored as markdown documents and hosted in a GitHub repository, published to a corporate website, embedded into the Bitcoin SV blockchain, shared on a mailing list, or distributed by any other means deemed appropriate by the author(s).</p>
+<p>It is however recommended that at a minimum, the following metadata be included somewhere in the document:</p>
+<table><thead><tr><th> Field        </th><th> Required   </th><th> Description      </th></tr></thead><tbody>
+<tr><td> <code>title</code>      </td><td> <code>required</code> </td><td> Proposal title   </td></tr>
+<tr><td> <code>author</code>     </td><td>            </td><td> Free-form, could include a name, alias, paymail address, GitHub/social media handle, etc. </td></tr>
+<tr><td> <code>version</code>    </td><td>            </td><td> No set format; could be a sequence number, publication date, or any other scheme  </td></tr>
+<tr><td> <code>supersedes</code> </td><td>            </td><td> A BRFC ID (or list of IDs) that this document supersedes                                 </td></tr>
+</tbody></table>
+<p>For markdown files, it is recommended that these fields are embedded as YAML front-matter.</p>
+<p>It is not recommended that version fields follow semver. With semver's <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code> format, it is expected that only an increment to the <code>&lt;major&gt;</code> element indicates a breaking change. An increment of the <code>&lt;minor&gt;</code> field indicates that additional functionality is available but that it will not break existing clients.</p>
+<p>This is at odds with the binary nature of implementing a specification; either the specification is supported or it is not. The preferred methods of adding new features to a specification are:</p>
+<ul>
+<li>Introduce a new extension specification describing the additional functionality</li>
+<li>Update the specification and include the old BRFC ID in the <code>supersedes</code> field</li>
+</ul>
+<p>Copyright 2019 nChain and Money Button</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="01-brfc-specifications.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="01-02-brfc-id-assignment.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="01-brfc-specifications.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="01-02-brfc-id-assignment.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

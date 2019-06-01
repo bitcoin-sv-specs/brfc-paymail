@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Host Discovery - Paymail</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="index.html">Overview</a></li><li><a href="01-brfc-specifications.html"><strong aria-hidden="true">1.</strong> BRFC Specifications</a></li><li><ol class="section"><li><a href="01-01-specification-documents.html"><strong aria-hidden="true">1.1.</strong> Specification Documents</a></li><li><a href="01-02-brfc-id-assignment.html"><strong aria-hidden="true">1.2.</strong> BRFC ID Assignment</a></li></ol></li><li><a href="02-service-discovery.html"><strong aria-hidden="true">2.</strong> Service Discovery</a></li><li><ol class="section"><li><a href="02-01-host-discovery.html" class="active"><strong aria-hidden="true">2.1.</strong> Host Discovery</a></li><li><a href="02-02-capability-discovery.html"><strong aria-hidden="true">2.2.</strong> Capability Discovery</a></li></ol></li><li><a href="03-public-key-infrastructure.html"><strong aria-hidden="true">3.</strong> Public Key Infrastructure</a></li><li><a href="04-payment-addressing.html"><strong aria-hidden="true">4.</strong> Payment Addressing</a></li><li><ol class="section"><li><a href="04-01-basic-address-resolution.html"><strong aria-hidden="true">4.1.</strong> Basic Address Resolution</a></li><li><a href="04-02-sender-validation.html"><strong aria-hidden="true">4.2.</strong> Sender Validation</a></li><li><a href="04-03-receiver-approvals.html"><strong aria-hidden="true">4.3.</strong> Receiver Approvals</a></li><li><a href="04-04-payto-protocol-prefix.html"><strong aria-hidden="true">4.4.</strong> PayTo Protocol Prefix</a></li></ol></li><li><a href="05-verify-public-key-owner.html"><strong aria-hidden="true">5.</strong> Verify Public Key Owner</a></li><li class="affix"><a href="99-01-recommendations.html">Recommendations</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Paymail</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#host-discovery" id="host-discovery"><h1>Host Discovery</h1></a>
+<p>Host discovery is the process through which a domain owner optionally specifies which web host to interrogate during capability discovery. The host discovery process involves the creation and subsequent query of <code>SRV</code> DNS records.</p>
+<p>The use of an <code>SRV</code> record was chosen for the following reasons:</p>
+<ul>
+<li>Domain owners may choose to use a third-party paymail service provider. Delegating authority to this provider is a one-time activity (the creation of a DNS <code>SRV</code> record).</li>
+<li><code>TXT</code> records were considered, however should the paymail service be reconfigured (for example, the root URI change from <code>.../api/v1/...</code> to <code>.../api/v2/...</code>), the domain owner would have to coordinate with the service provider to ensure the <code>TXT</code> record (containing a full endpoint URI) was updated. With <code>SRV</code> records (plus the <a href="02-02-capability-discovery.html">Capability Discovery</a> protocol), the Host Discovery phase is <em>set-and-forget</em>.</li>
+<li>As an optional step, if the canonical Capability Discovery host is the same as the domain found in the paymail alias, the DNS record can be omitted entirely.</li>
+<li>DNS records (including <code>SRV</code>) feature a TTL, which clients can use for caching responses. All common DNS clients implement this caching <em>out-of-the-box</em>, meaning implementers do not have to roll this themselves.</li>
+</ul>
+<a class="header" href="#setup" id="setup"><h2>Setup</h2></a>
+<p>A domain owner may create an <code>SRV</code> record with the following parameters:</p>
+<table><thead><tr><th> Parameter </th><th> Value                       </th></tr></thead><tbody>
+<tr><td> Service   </td><td> <code>_bsvalias</code>                 </td></tr>
+<tr><td> Proto     </td><td> <code>_tcp</code>                      </td></tr>
+<tr><td> Name      </td><td> <code>&lt;domain&gt;.&lt;tld&gt;.</code>           </td></tr>
+<tr><td> TTL       </td><td> <code>3600</code> (see notes)          </td></tr>
+<tr><td> Class     </td><td> <code>IN</code>                        </td></tr>
+<tr><td> Priority  </td><td> <code>10</code>                        </td></tr>
+<tr><td> Weight    </td><td> <code>10</code>                        </td></tr>
+<tr><td> Port      </td><td> <code>443</code>                       </td></tr>
+<tr><td> Target    </td><td> <code>&lt;endpoint-discovery-host&gt;</code> </td></tr>
+</tbody></table>
+<p>The <code>TTL</code> parameter should be set very low for test configurations (a few seconds), whereas for production deployments this should be set higher, to allow caching to work. A value of <code>3600</code> is suggested for production deployments.</p>
+<p>Although the DNS system allows for multiple records with a variety of priorities and weights, which allows for some level of traffic management, resilience, and load-balancing via DNS records, it is recommended by this specification that these considerations be handled by more modern infrastructure and only a single <code>SRV</code> record be created.</p>
+<p>See <a href="https://en.wikipedia.org/wiki/SRV_record">https://en.wikipedia.org/wiki/SRV_record</a> for more information on <code>SRV</code> DNS records.</p>
+<a class="header" href="#client-queries" id="client-queries"><h2>Client Queries</h2></a>
+<p>Given a paymail alias <code>&lt;alias&gt;@&lt;domain&gt;.&lt;tld&gt;</code>, a paymail client would perform a DNS lookup for an SRV record matching <code>_bsvalias._tcp.&lt;domain&gt;.&lt;tld&gt;</code>. The combination of <code>Target</code> and <code>Port</code> fields are then used for Capability Discovery. Should no record be returned, a paymail client should assume a host of <code>&lt;domain&gt;.&lt;tld&gt;</code> and a port of <code>443</code>.</p>
+<p>Copyright 2019 nChain and Money Button</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="02-service-discovery.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="02-02-capability-discovery.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="02-service-discovery.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="02-02-capability-discovery.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
