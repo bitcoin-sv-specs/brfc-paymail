@@ -70,7 +70,7 @@ A single `.well-known/bsvalias` document cannot describe the per-alias/per-domai
 
 ### Simplified client/request flow
 
-Merging capability discovery reduces the amount of requests made in order to locate a given service endpoint, and simplifies client implementations. 
+Merging capability discovery reduces the amount of requests made in order to locate a given service endpoint, and simplifies client implementations.
 
 ### More complicated deployment
 
@@ -79,3 +79,21 @@ One drawback of merging the two phases of discovery is that `.well-known/bsvalia
 Prior to merging these to functions, a redeployment of the paymail service implementation may deliver new capabilities. These would be automatically discovered by clients.
 
 Having merged service location and capability discovery into `.well-known/bsvalias`, this file must also be updated when a service deployment delivers enhanced capabilities. It is recommended that implementers of server software deliver an endpoint that can generate a valid `.well-known/bsvalias` response, and that operators configure a proxy to transparently service this implementation-provided endpoint when a request for the well known capabilities file is received.
+
+## Discovery for other blockchains
+
+The `.well-known/bsvalias` document is for production use of Paymail, but it is useful to be able to develop and test Paymail on other blockchains and for hosts to offer the services for development and testing in addition to production. At this time the only two alternative blockchains that are supported in addition to the main Bitcoin SV blockchain, are the test blockchain and the scaling test blockchain.
+
+A host indicates support for either of these blockchains, but additional separate JSON files for each blockchain. Each of these documents is expected to be structured the same as the main blockchain document, but to differentiate the API endpoints for the services the host provides on that blockchain and so that the host knows which blockchain the usage is intended to be on.
+
+### Test blockchain
+
+If a host supports the Test blockchain, it should provide the additional file:
+
+`https://<host-discovery-target>:<host-discovery-port>/.well-known/bsvalias-testnet`.
+
+### Scaling test blockchain
+
+If a host supports the scaling test blockchain, it should provide the additional file:
+
+`https://<host-discovery-target>:<host-discovery-port>/.well-known/bsvalias-scalingtestnet`.
