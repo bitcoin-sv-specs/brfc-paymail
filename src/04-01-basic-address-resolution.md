@@ -47,7 +47,7 @@ deactivate c
 
 ## Sender Request
 
-The `capabilities.pki` path returns a URI template. Senders should replace the `{alias}` and `{domain.tld}` template parameters with the values from the receiver's paymail handle and then make an HTTP POST request against this URI.
+The `capabilities.paymentDestination` path returns a URI template. Senders should replace the `{alias}` and `{domain.tld}` template parameters with the values from the receiver's paymail handle and then make an HTTP POST request against this URI.
 
 The body of the POST request _MUST_ have a content type of `application/json` and _MUST_ conform to the following schema:
 
