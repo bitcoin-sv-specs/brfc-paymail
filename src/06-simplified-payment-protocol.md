@@ -13,7 +13,7 @@ This capability allows delivering Simplified Payment Protocol (BIP 270) endpoint
 
 ## Motivation
 
-It is important for scalability to away from "pay-to-address", where the recipient of a transaction (or someone on their behalf) is expected to scan the blockchain to find their transaction, to "pay-to-paymail", where a transaction is delivered directly to the recipient (or someone on their behalf), eliminating the need to scan the blockchain to find the received transaction.
+It is important for scalability to move away from "pay-to-address", where the recipient of a transaction (or someone on their behalf) is expected to scan the blockchain to find their transaction, to "pay-to-paymail", where a transaction is delivered directly to the recipient (or someone on their behalf), eliminating the need to scan the blockchain to find the received transaction.
 
 Simplified Payment Protocol (BIP 270) is a fork of the original Payment Protocol (BIP 70) and updated to be easier to implement while retaining the key desirable features.
 
