@@ -37,11 +37,11 @@ The strategy of merging paymail and BIP 270 is sometimes referred to as "modern 
 
 ## Flow
 
-The usual flow will be one of two possibilities. Either the sender wishes to send a payment of a certain amount to the recipient (such as in many real-life payment scenarios where no explicit invoice is provided, or where the recipient is the sender using a different wallet), or the recipient has already generated an invoice and the sender wishes to pay the invoice.
+The usual flow will be one of two possibilities. Either the sender wishes to send a payment of a certain amount to the recipient (such as in many real-life payment scenarios where no explicit payment request is provided, or where the recipient is the sender using a different wallet), or the recipient has already generated a payment request and the sender wishes to pay the payment request.
 
 In the first case, the sender knows the paymail of the recipient and the amount they wish to send. The sender will query the paymail endpoint for the BIP 270 endpoint. Next, the sender's wallet software will query the BIP 270 paymail endpoint with a query parameter for the amount. The sender will receive a payment request which they will then pay by building, signing, and sending a transaction to the <code>paymentUrl</code> specified in the payment request (following the BIP 270 protocol).
 
-In the second case, the sender has received an invoice ID embedded in a URL or in a QR code using the PayTo protocol with an extra `{?invoice}` URI parameter. The sender either clicks the URL or scans the QR code, which will activate their wallet software. The wallet software will query the paymail endpoint to find the BIP 270 endpoint. The wallet software will then query the BIP 270 paymail endpoint with a query parameter for the invoice ID. The sender will then pay the invoice by building, signing, and sending a transaction to the <code>paymentUrl</code> specified in the payment request (following the BIP 270 protocol).
+In the second case, the sender has received a patmene request ID embedded in a URL or in a QR code using the PayTo protocol with an extra `{?prid}` URI parameter. The sender either clicks the URL or scans the QR code, which will activate their wallet software. The wallet software will query the paymail endpoint to find the BIP 270 endpoint. The wallet software will then query the BIP 270 paymail endpoint with a query parameter for the payment request ID. The sender will then pay the payment request by building, signing, and sending a transaction to the <code>paymentUrl</code> specified in the payment request (following the BIP 270 protocol).
 
 ## Capability discovery
 
@@ -51,7 +51,7 @@ The `.well-known/bsvalias` document is updated to include a BIP 270 endpoint:
 {
   "bsvalias": "1.0",
   "capabilities": {
-    "{{fm:brfc}}": "https://example.bsvalias.tld/api/{alias}@{domain.tld}/{?amount,purpose,invoice}"
+    "{{fm:brfc}}": "https://example.bsvalias.tld/api/{alias}@{domain.tld}/{?amount,purpose,prid}"
   }
 }
 ```
@@ -66,9 +66,9 @@ The `{?amount}` query parameter _MAY_ be any valid number of satoshis representi
 
 The `{?purpose}` query parameter _MAY_ be any URL-encoded string, including the empty string, representing the purpose of the payment. This value _MAY_ be used by the recipient to describe the payment.
 
-The `{?invoice}` query parameter _MAY_ be any URL-encoded string, including the empty string, representing the ID of an invoice to be retrieved and returned. The recipient _MUST_ deliver the same payment request each time the same invoice is requested.
+The `{?prid}` query parameter _MAY_ be any URL-encoded string, including the empty string, representing the ID of a payment request to be retrieved and returned. The recipient _MUST_ deliver the same payment request each time the same payment request is requested.
 
-Note that both `{amount}` and `{invoice}` are optional. In that case that neither are present, it is expected that a payment request is returned that does not specify an amount, meaning the sender will have to specify an amount before pressing send. This is allowed by the BIP 270 protocol, and is effectively equivalent to the case where the amount is determined before retrieving the payment request, although the payment requests themselves look different because in this case no amount is present in the output(s).
+Note that both `{amount}` and `{prid}` are optional. In that case that neither are present, it is expected that a payment request is returned that does not specify an amount, meaning the sender will have to specify an amount before pressing send. This is allowed by the BIP 270 protocol, and is effectively equivalent to the case where the amount is determined before retrieving the payment request, although the payment requests themselves look different because in this case no amount is present in the output(s).
 
 ## Server Response
 
