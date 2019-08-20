@@ -13,13 +13,13 @@ This capability allows the display of a name and avatar for a given paymail, wit
 
 # Motivation
 
-It would be nice if we had extensible protocol to retrieve a name and avatar for a given paymail so that these items can be displayed next to a paymail.
+It would be nice if we had extensible protocol to retrieve a name and avatar for a given paymail so that these items can be displayed next to a paymail inside of a contact list or any other UI component.
 
-The name should be a string sufficiently long as to allow any human name.
+The name should be a string sufficiently long as to allow any human name, business name, or entity name.
 
 The avatar should be a URL to an image using an API similar to Gravatar.
 
-Name and avatar are the most common, but it would be good if the protocol were extensible so that services could add other pieces of public profile information (such as website) if such pieces of information were deemed important.
+Name and avatar are the most common, but it would be good if the protocol were extensible so that services could add other pieces of public profile information (such as website) if such pieces of information were deemed important. The protocol is naturally extensible simply by using JSON.
 
 ## Capability discovery
 
