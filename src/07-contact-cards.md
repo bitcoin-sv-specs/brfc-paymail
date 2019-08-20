@@ -64,6 +64,6 @@ Returned when a valid request was made. The response _MUST_ have `application/js
 
 The image should be JPEG, PNG, or GIF.
 
-Normally, the image should be square, and should look good when cropped to a circle, since this will be the most common way to display the images.
+The returned image _MUST_ be a square, at the resolution specified by `s`, and should look good when cropped to a circle, since this will be the most common way to display the images.
 
-To make implementation easier, the image can be a rectangle. In that case, the viewer has the freedom to crop or squish the image any way it desires in order to make the image fit in the UI. In order for the image to look good and consistent, it is recommended a proper square image be returned.
+Note, however, that there is no way to enforce what resolution image is returned or what the viewer will do with an image that is the incorrect resolution. Thus, if the returned image is not a square or if it is the wrong resolution, the viewer behavior is undefined. Some viewers may crop the image, some may squish the image, and some may choose not to display the image at all.
