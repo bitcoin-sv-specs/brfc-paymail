@@ -66,4 +66,4 @@ The image should be JPEG, PNG, or GIF.
 
 Normally, the image should be square, and should look good when cropped to a circle, since this will be the most common way to display the images.
 
-To make implementation easier, the image can be a rectangle. In that case, the viewer as the freedom to crop or squish the image any way it desires in order to make the image fit in the UI. In order for the image to look good and consistent, it is recommended a proper square image be returned.
+To make implementation easier, the image can be a rectangle. In that case, the viewer has the freedom to crop or squish the image any way it desires in order to make the image fit in the UI. In order for the image to look good and consistent, it is recommended a proper square image be returned.
