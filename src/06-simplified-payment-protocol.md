@@ -41,7 +41,7 @@ The usual flow will be one of two possibilities. Either the sender wishes to sen
 
 In the first case, the sender knows the paymail of the recipient and the amount they wish to send. The sender will query the paymail endpoint for the BIP 270 endpoint. Next, the sender's wallet software will query the BIP 270 paymail endpoint with a query parameter for the amount. The sender will receive a payment request which they will then pay by building, signing, and sending a transaction to the <code>paymentUrl</code> specified in the payment request (following the BIP 270 protocol).
 
-In the second case, the sender has received a patmene request ID embedded in a URL or in a QR code using the PayTo protocol with an extra `{?prid}` URI parameter. The sender either clicks the URL or scans the QR code, which will activate their wallet software. The wallet software will query the paymail endpoint to find the BIP 270 endpoint. The wallet software will then query the BIP 270 paymail endpoint with a query parameter for the payment request ID. The sender will then pay the payment request by building, signing, and sending a transaction to the <code>paymentUrl</code> specified in the payment request (following the BIP 270 protocol).
+In the second case, the sender has received a payment request ID embedded in a URL or in a QR code using the PayTo protocol with an extra `{?prid}` URI parameter. The sender either clicks the URL or scans the QR code, which will activate their wallet software. The wallet software will query the paymail endpoint to find the BIP 270 endpoint. The wallet software will then query the BIP 270 paymail endpoint with a query parameter for the payment request ID. The sender will then pay the payment request by building, signing, and sending a transaction to the <code>paymentUrl</code> specified in the payment request (following the BIP 270 protocol).
 
 ## Capability discovery
 
@@ -68,7 +68,7 @@ The `{?purpose}` query parameter _MAY_ be any URL-encoded string, including the 
 
 The `{?prid}` query parameter _MAY_ be any URL-encoded string, including the empty string, representing the ID of a payment request to be retrieved and returned. The recipient _MUST_ deliver the same payment request each time the same payment request is requested.
 
-Note that both `{amount}` and `{prid}` are optional. In that case that neither are present, it is expected that a payment request is returned that does not specify an amount, meaning the sender will have to specify an amount before pressing send. This is allowed by the BIP 270 protocol, and is effectively equivalent to the case where the amount is determined before retrieving the payment request, although the payment requests themselves look different because in this case no amount is present in the output(s).
+Note that both `{amount}` and `{prid}` are optional, but the sender _MUST_ specify at least one of them.
 
 ## Server Response
 
