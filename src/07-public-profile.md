@@ -1,6 +1,6 @@
 ---
 brfc: true
-title: Contact Cards
+title: Public Profile (Name & Avatar)
 authors:
   - Ryan X. Charles (Money Button)
 version: 1
@@ -13,7 +13,7 @@ This capability allows the display of a name and avatar for a given paymail, wit
 
 # Motivation
 
-It would be nice if we had extensible protocol to retrieve a name and avatar for a given paymail so that these items can be displayed next to a paymail inside of a contact list or any other UI component.
+It would be nice if we had extensible protocol to retrieve public profile information, particularly a name and avatar, for a given paymail. Then these items can be displayed next to a paymail inside of a contact list or any other UI component.
 
 The name should be a string sufficiently long as to allow any human name, business name, or entity name.
 
@@ -23,7 +23,7 @@ Name and avatar are the most common, but it would be good if the protocol were e
 
 ## Capability discovery
 
-The `.well-known/bsvalias` document is updated to include a contact card endpoint:
+The `.well-known/bsvalias` document is updated to include a public profile endpoint:
 
 ```json
 {
@@ -34,7 +34,7 @@ The `.well-known/bsvalias` document is updated to include a contact card endpoin
 }
 ```
 
-The `capabilities.{{fm:brfc}}` is a template URL to query for the contact card information.
+The `capabilities.{{fm:brfc}}` is a template URL to query for the public profile information.
 
 ## Client Request
 
@@ -44,7 +44,7 @@ The client _MUST_ perform a GET request to the obtained URL.
 
 ## Server Response
 
-The server response is a JSON object containing contact card information. The only pieces of information are name and avatar. However, because we use JSON, it will be possible to extend this protocol to include additional information later on.
+The server response is a JSON object containing public profile information. The only pieces of information are name and avatar. However, because we use JSON, it will be possible to extend this protocol to include additional information later on.
 
 ### 200 OK
 
