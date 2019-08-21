@@ -34,3 +34,9 @@ See [https://en.wikipedia.org/wiki/SRV_record](https://en.wikipedia.org/wiki/SRV
 ## Client Queries
 
 Given a paymail alias `<alias>@<domain>.<tld>`, a paymail client would perform a DNS lookup for an SRV record matching `_bsvalias._tcp.<domain>.<tld>`. The combination of `Target` and `Port` fields are then used for Capability Discovery. Should no record be returned, a paymail client should assume a host of `<domain>.<tld>` and a port of `443`.
+
+## DNSSEC is Required
+
+All paymail domains and hosts must have DNSSEC enabled on their domain name. If when accessing the host/domain DNS records, DNSSEC is found to not be enabled, the application must block the payment and present the user with a clear statement that the domain/host is insecure.  If the host discovery is disconnected from a user action, like PKI lookups by Paymail services, they must error.
+
+Domain owners can verify that their domain has fully enabled DNSSEC using Verisign Labs' [DNSSEC verifier](https://dnssec-analyzer.verisignlabs.com/).
