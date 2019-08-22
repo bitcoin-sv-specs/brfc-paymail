@@ -9,6 +9,8 @@ version: 1
 
 {{yfm}}
 
+Hash: 34440c4668b3
+
 This capability allows delivering Simplified Payment Protocol (BIP 270) endpoints. Also included is an extension to the PayTo protocol to support BIP 270.
 
 ## Motivation
