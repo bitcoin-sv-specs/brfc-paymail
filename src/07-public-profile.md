@@ -9,6 +9,8 @@ version: 1
 
 {{yfm}}
 
+Hash: f12f968c92d6
+
 This capability allows the display of a name and avatar for a given paymail, with the possibility to extend the available information in the future.
 
 # Motivation
