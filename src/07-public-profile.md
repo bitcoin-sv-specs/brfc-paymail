@@ -62,7 +62,7 @@ Returned when a valid request was made. The response _MUST_ have `application/js
 | Field    | Description                                                                                                           |
 |----------|-----------------------------------------------------------------------------------------------------------------------|
 | `name`   | A string up to 100 characters long.                                                                                   |
-| `avatar` | A URL that returns a 80x80 image. It can accept an optional parameter `s` to return an image of width and height `s`. |
+| `avatar` | A URL that returns a 180x180 image. It can accept an optional parameter `s` to return an image of width and height `s`. |
 
 The image should be JPEG, PNG, or GIF.
 
