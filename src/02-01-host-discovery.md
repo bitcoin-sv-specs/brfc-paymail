@@ -31,6 +31,19 @@ Although the DNS system allows for multiple records with a variety of priorities
 
 See [https://en.wikipedia.org/wiki/SRV_record](https://en.wikipedia.org/wiki/SRV_record) for more information on `SRV` DNS records.
 
+`SRV` records **must** be served with a valid [DNSSEC](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) signature chain.
+
 ## Client Queries
 
-Given a paymail alias `<alias>@<domain>.<tld>`, a paymail client would perform a DNS lookup for an SRV record matching `_bsvalias._tcp.<domain>.<tld>`. The combination of `Target` and `Port` fields are then used for Capability Discovery. Should no record be returned, a paymail client should assume a host of `<domain>.<tld>` and a port of `443`.
+Given a paymail alias `<alias>@<domain>.<tld>`, a paymail client would perform a DNS lookup for an `SRV` record matching `_bsvalias._tcp.<domain>.<tld>`. The combination of `Target` and `Port` fields are then used for Capability Discovery. Should no record be returned, a paymail client should assume a host of `<domain>.<tld>` and a port of `443`.
+
+### Security and SRV Records
+
+In its legacy form, that is, without DNSSEC, DNS is not a secure mechanism. It is susceptible to a range of attacks, the most serious for the purposes of the BSV Alias protocol being an intercept or man-in-the-middle (MITM) attack. In this scenario an attacker intercepts DNS queries and responds with their own data. This would allow an attacker to direct a client to a paymail implementation of their choosing, which would further allow for them to control all further communications with a client.
+
+Clients **must**, therefore, resolve hosts with the following procedure.
+
+* Query for an `SRV` endpoint at `_bsvalias._tcp.<domain>.<tld>.`.
+* If no `SRV` record is found, instead query for an `A` record for `<domain>.<tld>.` and proceed to capability discovery, verifying that the SSL certificate presented by the remote is valid for `<domain>.<tld>.`.
+* If an `SRV` record is found, but the response is _not_ served with a valid DNSSEC signature chain, ignore the `SRV` record completely and continue as in the previous step, relying on the SSL certificate for the prevention of man in the middle attacks. Note that in this scenario it is possible to still receive malicious DNS information, however SSL certificates prevent further MITM attacks. The worst that may happen here is that, for a domain that has delegated BSV Alias services out to a service provider, further lookups fail and the client cannot proceed at this time.
+* If an `SRV` record is found, and the response _is_ served with a valid DNSSEC signature chain, proceed to capability discovery using the target/port combination as specified by the `SRV` record.
