@@ -15,6 +15,7 @@
   - [Receiver Approvals](./04-03-receiver-approvals.md)
   - [PayTo Protocol Prefix](./04-04-payto-protocol-prefix.md)
 - [Verify Public Key Owner](./05-verify-public-key-owner.md)
+- [Simplified Payment Protocol (BIP 270) Paymail Integration](./06-simplified-payment-protocol.md)
 
 
 [Recommendations](./99-01-recommendations.md)
